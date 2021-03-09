@@ -7,6 +7,8 @@ class TestCommonUncommonWords(unittest.TestCase):
     # Test Data
     sentence1 = "This is a sentence that contains some common words"
     sentence2 = "Another sentence that possibly has the same words like this"
+    sentence1punctuation = "This is a sentence that contains some common words."
+    sentence2punctuation = "Another sentence that possibly has the same words like this."
     blanksentence2 = ""
     onewordsentence1 = "Hi"
     onewordsentence2 = "Bye"
@@ -33,6 +35,16 @@ class TestCommonUncommonWords(unittest.TestCase):
         Test with two different sentences
         """
         common_words_sorted, uncommon_words_sorted = self.run_function_and_sort_results(self.sentence1, self.sentence2)
+        self.assertEqual(common_words_sorted, self.expected_sentence12_commonwords)
+        self.assertEqual(uncommon_words_sorted, self.expected_sentence12_uncommonwords)
+
+    def test_sentences_with_punctuation(self):
+        """
+        Test
+        Test with Sentences with punctuation.
+        """
+        common_words_sorted, uncommon_words_sorted = self.run_function_and_sort_results(self.sentence1punctuation,
+                                                                                        self.sentence2punctuation)
         self.assertEqual(common_words_sorted, self.expected_sentence12_commonwords)
         self.assertEqual(uncommon_words_sorted, self.expected_sentence12_uncommonwords)
 
