@@ -1,5 +1,9 @@
 def common_and_uncommon_words(sentence1: str, sentence2: str) -> (list, list):
-    """A simple function that returns a list of common and uncommon words
+    """
+    :param sentence1:
+    :param sentence2:
+    :return: (list, list)
+    A simple function that returns a list of common and uncommon words
     contained within two sentences"""
 
     # Because uppercase and lowercase words don't match, convert to lowercase
@@ -12,7 +16,8 @@ def common_and_uncommon_words(sentence1: str, sentence2: str) -> (list, list):
     sentence2set = set(sentence2words)
 
     # Find the intersection of words in each set for common values
-    common_words = sentence1set.intersection(sentence1set)
+    common_words = sentence1set.intersection(sentence2set)
+
     # Finding the disjunctive union of words in each set for uncommon values
     uncommon_words = sentence1set.symmetric_difference(sentence2set)
 
@@ -21,6 +26,7 @@ def common_and_uncommon_words(sentence1: str, sentence2: str) -> (list, list):
     return list(common_words), list(uncommon_words)
 
 
+# Driver code for common_and_uncommon_words
 if __name__ == '__main__':
     sentence1 = "This is a sentence that contains some common words"
     sentence2 = "Another sentence that possibly has the same words like this"
@@ -33,15 +39,15 @@ if __name__ == '__main__':
     print("Uncommon words")
     print(uncommon_words)
 
-    print("One Blank Sentence")
-    common_words, uncommon_words = common_and_uncommon_words(sentence1, blanksentence2)
+    print("Two Identical Sentences")
+    common_words, uncommon_words = common_and_uncommon_words(sentence1, sentence1)
     print("Common Words")
     print(common_words)
     print("Uncommon words")
     print(uncommon_words)
 
-    print("Two Identical Sentences")
-    common_words, uncommon_words = common_and_uncommon_words(sentence1, sentence1)
+    print("One Blank Sentence")
+    common_words, uncommon_words = common_and_uncommon_words(sentence1, blanksentence2)
     print("Common Words")
     print(common_words)
     print("Uncommon words")
